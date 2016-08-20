@@ -1,0 +1,37 @@
+New log file opened at Sat Aug 20 15:28:22 COT 2016 by 10848@ISIS2503-34
+Taking next connection to: 53430
+New client attempting to connect on port: 53431-53430
+  Address = /172.24.42.108:53430
+This client on port 53431 has uuid d9523622-c8ae-4cd9-9b37-f3727c2f11d8 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-d9523622-c8ae-4cd9-9b37-f3727c2f11d8
+Taking next connection to: 53430
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53430
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53430
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53430
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53430
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53430
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53430
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53430
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53430
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 10848@ISIS2503-34 logs at Sat Aug 20 15:55:23 COT 2016, goodbye.
