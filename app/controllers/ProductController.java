@@ -50,7 +50,7 @@ public class ProductController extends Controller {
         return CompletableFuture.supplyAsync(
                 ()->{
                     product.setId(id);
-                    ProductEntity.FINDER.ref(id).update();
+                    product.update();
                     return ok();
                 }
         ).thenApply(
