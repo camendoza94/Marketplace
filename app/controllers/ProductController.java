@@ -42,4 +42,48 @@ public class ProductController extends Controller {
                 }
         );
     }
+
+    public CompletionStage<Result> updateProduct(Long id){
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+        JsonNode nProduct = request().body().asJson();
+        ProductEntity product = Json.fromJson( nProduct , ProductEntity.class ) ;
+        return CompletableFuture.supplyAsync(
+                ()->{
+                    product.setId(id);
+                    ProductEntity.FINDER.ref(id).update();
+                    return ok();
+                }
+        ).thenApply(
+                productEntity -> ok() //No estoy seguro
+        );
+    }
+
+
+    public CompletionStage<Result> deleteProduct(Long id){
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+        return CompletableFuture.supplyAsync(
+                () -> {
+                    ProductEntity.FINDER.deleteById(id);
+                    return ok();
+                })
+        .thenApply(
+                productEntity -> ok() //No estoy seguro
+        );
+    }
+
+    public CompletionStage<Result> getProduct(Long id) {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        return CompletableFuture.
+                supplyAsync(
+                        () -> {
+                            return ProductEntity.FINDER.byId(id);
+                        }
+                        , jdbcDispatcher)
+                .thenApply(
+                        productEntity -> {
+                            return ok(toJson(productEntity));
+                        }
+                );
+    }
 }

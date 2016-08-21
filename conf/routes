@@ -8,6 +8,9 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 # ProductController
 GET     /products                   controllers.ProductController.getProducts
+GET     /products/:id               controllers.ProductController.getProduct(id: Long)
+PUT     /products/:id               controllers.ProductController.updateProduct(id: Long)
+DELETE  /products/:id               controllers.ProductController.deleteProduct(id: Long)
 POST    /products                   controllers.ProductController.createProduct
 
 #Item routes
