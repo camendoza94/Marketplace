@@ -1,9 +1,17 @@
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
+#Vista de la página inicial, por ahora no es necesaria?
+#GET     /                           controllers.HomeController.index
+
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 # ProductController
-
 GET     /products                   controllers.ProductController.getProducts
 POST    /products                   controllers.ProductController.createProduct
+
+#Item routes
+GET     /items                      controllers.ItemController.getItems
+POST    /items                      controllers.ItemController.createItem
+
+#WishList routes

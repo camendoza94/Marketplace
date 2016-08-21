@@ -1,3 +1,4 @@
+.sbtserver/
 logs
 target
 /.idea
