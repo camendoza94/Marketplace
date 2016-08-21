@@ -27,6 +27,13 @@ public class ItemEntity extends Model{
     public ItemEntity() {
         this.id=null;
         this.quantity = -1;
+        this.product = null;
+    }
+
+    public ItemEntity(int quantity, ProductEntity product, Long wishlist) {
+        this.quantity = quantity;
+        this.product = product;
+        this.wishlist = wishlist;
     }
 
     public ItemEntity(Long id) {
@@ -48,6 +55,22 @@ public class ItemEntity extends Model{
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public ProductEntity getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductEntity product) {
+        this.product = product;
+    }
+
+    public Long getWishlist() {
+        return wishlist;
+    }
+
+    public void setWishlist(Long wishlist) {
+        this.wishlist = wishlist;
     }
 
     @Override

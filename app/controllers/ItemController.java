@@ -8,6 +8,7 @@ import models.ProductEntity;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
+import scala.xml.PrettyPrinter;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
@@ -57,5 +58,91 @@ public class ItemController extends Controller {
     }
 
     //TODO delete, update, get particular
+
+    /**
+     * Borra un item con id particular dado por parametro. Atiende llamado de DELETE /items/{<[0-9]+>id}
+     * @param id
+     * @return OK de que el item fue borrado
+     */
+    public CompletionStage<Result> deleteItem(Long id) {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        return CompletableFuture.
+                supplyAsync(
+                        () -> {
+                            ItemEntity.FINDER.ref(id).delete();
+                            return ItemEntity.FINDER.byId(id);
+                        }
+                        , jdbcDispatcher)
+                .thenApply(
+                        itemEntity -> {
+                            if(itemEntity == null)
+                            {
+
+                                return noContent();
+                            }
+                            else {
+                                return badRequest();
+                            }
+                        }
+                );
+    }
+
+    /**
+     * Actualiza un item con id particular dado por parametro. Atiende llamado de PUT /items/: id
+     * @param id identificador del item a actualizar
+     * @return El item actualizado
+     */
+    public CompletionStage<Result> updateItem(Long id) {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        JsonNode nItem = request().body().asJson();
+        ItemEntity item = Json.fromJson( nItem , ItemEntity.class ) ;
+        ItemEntity itemViejo = ItemEntity.FINDER.byId(id);
+        return CompletableFuture.supplyAsync(
+                ()->{
+                    if(itemViejo == null)
+                    {
+                        return itemViejo;
+                    }else
+                    {   item.setId(id);
+                        item.update();
+                        return item;
+                    }
+                }
+        ).thenApply(
+                itemEntity -> {
+                    if(itemEntity == null)
+                    {
+                        return notFound();
+                    }else
+                    {
+                    return ok(Json.toJson(itemEntity));
+                    }
+                }
+
+        );
+    }
+
+    /**
+     * Obtiene un item con id particular dado por parametro. Atiende llamado de GET /items/{<[0-9]+>id}
+     * @param id
+     * @return El item obtenido
+     */
+    public CompletionStage<Result> getItem(Long id) {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        return CompletableFuture.
+                supplyAsync(
+                        () -> {
+                            return ItemEntity.FINDER.byId(id);
+                        }
+                        , jdbcDispatcher)
+                .thenApply(
+                        itemEntity -> {
+                            return ok(toJson(itemEntity));
+                        }
+                );
+    }
 
 }

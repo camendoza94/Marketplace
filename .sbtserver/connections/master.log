@@ -1,13 +1,16 @@
-New log file opened at Sun Aug 21 13:56:28 COT 2016 by 4048@ISIS2503-0080
-Taking next connection to: 52522
-New client attempting to connect on port: 52523-52522
-  Address = /172.24.42.110:52522
-This client on port 52523 has uuid 97492fa5-c209-4da6-9631-46317de4f808 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-97492fa5-c209-4da6-9631-46317de4f808
-Taking next connection to: 52522
+New log file opened at Sun Aug 21 16:55:51 COT 2016 by 3668@ISIS2503-0080
+Taking next connection to: 53050
+New client attempting to connect on port: 53051-53050
+  Address = /172.24.42.110:53050
+This client on port 53051 has uuid 25c80a66-d626-4704-ae67-b42196f419ab configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-25c80a66-d626-4704-ae67-b42196f419ab
+Taking next connection to: 53050
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53050
 Checking to see if clients are empty...
 No non-daemon clients connected after 3 min. Shutting down.
 Server socket thread exiting.
 0 clients open, will close them...
 All client sockets have been closed.
-Closing the 4048@ISIS2503-0080 logs at Sun Aug 21 13:59:28 COT 2016, goodbye.
+Closing the 3668@ISIS2503-0080 logs at Sun Aug 21 17:01:52 COT 2016, goodbye.

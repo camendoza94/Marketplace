@@ -15,6 +15,9 @@ POST    /products                   controllers.ProductController.createProduct
 
 #Item routes
 GET     /items                      controllers.ItemController.getItems
+GET     /items/:id               controllers.ItemController.getItem(id: Long)
+PUT     /items/:id               controllers.ItemController.updateItem(id: Long)
+DELETE  /items/:id               controllers.ItemController.deleteItem(id: Long)
 POST    /items                      controllers.ItemController.createItem
 
 #WishList routes
