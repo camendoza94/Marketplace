@@ -21,3 +21,8 @@ DELETE  /items/:id               controllers.ItemController.deleteItem(id: Long)
 POST    /items                      controllers.ItemController.createItem
 
 #WishList routes
+POST    /wishlists                  controllers.WishListController.createWishList
+PUT     /wishlists/:id              controllers.WishListController.updateWishList(id: Long)
+DELETE  /wishlists/:id              controllers.WishListController.deteleWishList(id: Long)
+GET     /wishlists/:id              controllers.WishListController.getWishList(id: Long)
+GET     /wishlist                   controllers.WishListController.getWishLists
