@@ -1,7 +1,31 @@
-New log file opened at Sun Aug 21 20:18:15 COT 2016 by 24808@ISIS2503-47
-Taking next connection to: 51634
-New client attempting to connect on port: 51635-51634
-  Address = /172.24.42.121:51634
-This client on port 51635 has uuid 5caf53c0-4a12-4b85-b001-b53eb8711f33 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-5caf53c0-4a12-4b85-b001-b53eb8711f33
-Taking next connection to: 51634
+New log file opened at Sun Aug 21 20:34:15 COT 2016 by 4428@ISIS2503-0080
+Taking next connection to: 53527
+New client attempting to connect on port: 53528-53527
+  Address = /172.24.42.110:53527
+This client on port 53528 has uuid a687675a-781e-4516-945e-9a946798931e configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-a687675a-781e-4516-945e-9a946798931e
+Taking next connection to: 53527
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53527
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53527
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53527
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53527
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53527
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53527
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 4428@ISIS2503-0080 logs at Sun Aug 21 20:55:16 COT 2016, goodbye.
