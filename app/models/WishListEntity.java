@@ -11,7 +11,7 @@ public class WishListEntity extends Model{
     public static Finder<Long, WishListEntity> FINDER = new Finder<>(WishListEntity.class);
 
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE,generator = "WishListEntity")
+    @GeneratedValue(strategy= GenerationType.SEQUENCE,generator = "WishList")
     private Long id;
     private String username;
 
