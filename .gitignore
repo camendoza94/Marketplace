@@ -9,3 +9,4 @@ target
 /RUNNING_PID
 project/project/
 /.sbtserver
+*.sbtserver
