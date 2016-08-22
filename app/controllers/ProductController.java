@@ -54,7 +54,7 @@ public class ProductController extends Controller {
                     return ok();
                 }
         ).thenApply(
-                productEntity -> ok() //No estoy seguro
+                statusHeader -> statusHeader
         );
     }
 
@@ -67,7 +67,7 @@ public class ProductController extends Controller {
                     return ok();
                 })
         .thenApply(
-                productEntity -> ok() //No estoy seguro
+                statusHeader -> statusHeader
         );
     }
 
