@@ -30,7 +30,7 @@ create sequence Item;
 
 create sequence Product;
 
-create sequence WishListEntity;
+create sequence WishList;
 
 alter table itementity add constraint fk_itementity_product_1 foreign key (product_id) references productentity (id);
 create index ix_itementity_product_1 on itementity (product_id);
@@ -49,5 +49,5 @@ drop sequence if exists Item;
 
 drop sequence if exists Product;
 
-drop sequence if exists WishListEntity;
+drop sequence if exists WishList;
 

@@ -36,6 +36,7 @@ public class WishListController  extends Controller  {
     public CompletionStage<Result> createWishList(){
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
         JsonNode nWishList = request().body().asJson();
+        System.out.println(nWishList);
         WishListEntity list = Json.fromJson( nWishList , WishListEntity.class ) ;
         return CompletableFuture.supplyAsync(
                 ()->{
@@ -77,7 +78,7 @@ public class WishListController  extends Controller  {
                         ,jdbcDispatcher)
                 .thenApply(
                         wishListEntities -> {
-                            return ok(toJson(wishListEntities));
+                            return ok();
                         }
                 );
     }
