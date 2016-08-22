@@ -13,6 +13,9 @@ import java.util.concurrent.CompletionStage;
 import play.libs.Json;
 import com.fasterxml.jackson.databind.JsonNode;
 
+/**
+ * Clase controladora de la lista de deseos
+ */
 public class WishListController  extends Controller  {
 
     public CompletionStage<Result> getWishLists() {
@@ -25,8 +28,8 @@ public class WishListController  extends Controller  {
                         }
                         ,jdbcDispatcher)
                 .thenApply(
-                        productEntities -> {
-                            return ok(toJson(productEntities));
+                        wishListEntities -> {
+                            return ok(toJson(wishListEntities));
                         }
                 );
     }
@@ -40,10 +43,59 @@ public class WishListController  extends Controller  {
                     return list;
                 }
         ).thenApply(
-                productEntity -> {
-                    return ok(Json.toJson(productEntity));
+                wishListEntities -> {
+                    return ok(Json.toJson(wishListEntities));
                 }
         );
     }
 
+    public CompletionStage<Result> getWishList(Long id) {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        return CompletableFuture.
+                supplyAsync(
+                        () -> {
+                            return WishListEntity.FINDER.byId(id);
+                        }
+                        ,jdbcDispatcher)
+                .thenApply(
+                        wishListEntities -> {
+                            return ok(toJson(wishListEntities));
+                        }
+                );
+    }
+
+    public CompletionStage<Result> deteleWishList(Long id) {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        return CompletableFuture.
+                supplyAsync(
+                        () -> {
+                            WishListEntity.FINDER.deleteById(id);
+                            return ok();
+                        }
+                        ,jdbcDispatcher)
+                .thenApply(
+                        wishListEntities -> {
+                            return ok(toJson(wishListEntities));
+                        }
+                );
+    }
+
+    public CompletionStage<Result> updateWishList(Long id){
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+        JsonNode nWishList = request().body().asJson();
+        WishListEntity list = Json.fromJson( nWishList , WishListEntity.class ) ;
+        return CompletableFuture.supplyAsync(
+                ()->{
+                    list.setId(id);
+                    list.update();
+                    return ok();
+                }
+        ).thenApply(
+                wishListEntities -> {
+                    return ok(Json.toJson(wishListEntities));
+                }
+        );
+    }
 }
