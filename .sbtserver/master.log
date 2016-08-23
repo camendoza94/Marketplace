@@ -1366,3 +1366,10 @@ Set current project to Marketplace (in build file:/C:/Users/jd.fandino10/Documen
 > iflast shell
 > server-send-ready-for-request
 > server-handle-next-server-request
+Done executing sbt server engine, result Right(Exit(0))
+Closing listening server socket
+Waiting for socket thread
+Waiting for request processor thread
+Waiting for command engine result
+Returning control to sbt launcher with result Exit(0)
+Closing the 24808@ISIS2503-47 logs at Sun Aug 21 22:21:17 COT 2016, goodbye.

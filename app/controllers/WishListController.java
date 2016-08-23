@@ -95,7 +95,7 @@ public class WishListController  extends Controller  {
                 }
         ).thenApply(
                 wishListEntities -> {
-                    return ok(Json.toJson(wishListEntities));
+                    return ok();
                 }
         );
     }
