@@ -19,10 +19,9 @@ public class ItemEntity extends Model{
     @JoinColumn(name="product_id")
     private ProductEntity product;
 
-    //TODO agregar wishlist como objeto
-    //@ManyToOne(fetch=FetchType.LAZY, optional=false)
-    //@JoinColumn(name="wihslist_id")
-    private Long wishlist;
+    @ManyToOne(fetch=FetchType.LAZY, optional=false)
+    @JoinColumn(name="wishlist_id")
+    private WishListEntity wishlist;
 
     public ItemEntity() {
         this.id=null;
@@ -30,7 +29,7 @@ public class ItemEntity extends Model{
         this.product = null;
     }
 
-    public ItemEntity(int quantity, ProductEntity product, Long wishlist) {
+    public ItemEntity(int quantity, ProductEntity product, WishListEntity wishlist) {
         this.quantity = quantity;
         this.product = product;
         this.wishlist = wishlist;
@@ -65,11 +64,11 @@ public class ItemEntity extends Model{
         this.product = product;
     }
 
-    public Long getWishlist() {
+    public WishListEntity getWishlist() {
         return wishlist;
     }
 
-    public void setWishlist(Long wishlist) {
+    public void setWishlist(WishListEntity wishlist) {
         this.wishlist = wishlist;
     }
 
@@ -78,6 +77,7 @@ public class ItemEntity extends Model{
         return "ItemEntity{" +
                 "id=" + id +
         ", product="+ product.toString()+
+        ", wishlist="+wishlist.toString()+
                 '}';
     }
 }
